@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my solution to The Odin Project's Authentication assignment, which you can learn more about here:
 
-Things you may want to cover:
+https://www.theodinproject.com/lessons/authentication
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The goal is to create a Ruby on Rails application in which authorized users can create posts that remain anonymous to everyone except their fellow authorized users.
