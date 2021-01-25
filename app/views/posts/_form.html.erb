@@ -1,4 +1,5 @@
-<%= simple_form_for @post do |field| %>
-    <%= f.input :title %>
-    <%= f.input :text %>
+<%= simple_form_for(@post) do |field| %>
+    <%= field.input :title %>
+    <%= field.input :body %>
+    <%= field.button :submit %>
 <% end %>
