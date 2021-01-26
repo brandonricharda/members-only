@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create]
+    before_action :find, only: [:destroy]
 
     def new
         @post = current_user.posts.build
@@ -17,6 +18,18 @@ class PostsController < ApplicationController
                 format.html { redirect_to root_path notice: "Post was successfully created," }
             end
         end
+    end
+
+    def destroy
+        @post.destroy
+        respond_to do |format|
+            format.html { redirect_to root_path notice: "Post was successfully deleted." }
+            format.json { head :no_content }
+        end
+    end
+
+    def find
+        @post = Post.find(params[:id])
     end
 
     private
