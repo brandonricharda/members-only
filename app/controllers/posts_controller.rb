@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create]
 
     def new
-        @post = Post.new
+        @post = current_user.posts.build
     end
 
     def index
@@ -10,10 +10,19 @@ class PostsController < ApplicationController
     end
 
     def create
+        @post = current_user.posts.build(post_params)
         @post.user_id = current_user.id
-        if @post.save
-            format.html { redirect_to root_path, notice: 'Post was successfully created.' }
+        respond_to do |format|
+            if @post.save
+                format.html { redirect_to root_path notice: "Post was successfully created," }
+            end
         end
+    end
+
+    private
+
+    def post_params
+        params.require(:post).permit(:title, :body)
     end
 
 end
