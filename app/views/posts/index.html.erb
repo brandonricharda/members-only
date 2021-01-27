@@ -1,5 +1,6 @@
 <h1>Posts</h1>
 <% @posts.each do |post| %>
     <td><%= post.title %></td></br>
-    <td><%= post.body %></td></br></br>
+    <td><%= post.body %></td></br>
+    <td><%= post.user.email %></td></br></br>
 <% end %>
