@@ -2,5 +2,9 @@
 <% @posts.each do |post| %>
     <td><%= post.title %></td></br>
     <td><%= post.body %></td></br>
-    <td><%= post.user.email %></td></br></br>
+    <% if user_signed_in? %>
+        <td><%= post.user.name %></td></br></br>
+    <% end %>
 <% end %>
+<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></br>
+<%= link_to "Sign In", new_user_session_path %>
