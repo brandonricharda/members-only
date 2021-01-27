@@ -2,6 +2,9 @@
 <% @posts.each do |post| %>
     <td><%= post.title %></td></br>
     <td><%= post.body %></td></br>
+    <% if !user_signed_in? %>
+        </br>
+    <% end %>
     <% if user_signed_in? %>
         <td><%= post.user.name %></td></br></br>
     <% end %>
